@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 2/3/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/assn4.html
+
+    Assignment 4: Party Planner - Create a "Party Planner" page that includes a list of items needed for a party.
+    -->
+    <meta charset="UTF-8">
+    <title>Party Planner</title>
+    <style>
+        .strike {
+            text-decoration: line-through;
+        }
+        
+        #cake {
+            visibility: hidden;
+            position: absolute;
+            top: 100px;
+            left: 350px;
+        }
+ 
+        .changeColor li:nth-of-type(odd) {
+            color: rgb(211, 8, 42);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the birthday party!</h1>
+    <h3>Things we need to celebrate:</h3>
+    <ul id='list'>
+        <li>Birthday Cake</li>
+        <li>Tablecloths</li>
+        <li>Cups</li>
+        <li>Beverage</li>
+        <li>Balloons</li>
+        <li>Snacks</li>
+        <li>Ice Cream</li>
+        <li>Party Blowers</li>
+        <li>Party Hats</li>
+    </ul>
+    
+    <button onclick='image()' id='btn1'>highlight</button>
+    
+    <img id='cake' src="images/assn4/cake.png" alt="cake"  />
+    
+    <br/>
+    <br/>
+
+    <label>New Item
+        <input type='textbox' id='txtItem'>
+    </label>
+    
+    <button id='btn2'>Add</button>
+        
+    <script>
+        //assign the strike function to the onclick event for every list item
+        var items = document.getElementsByTagName('li');
+        for (var i=0; i < items.length; i++) {
+            items[i].onclick = strike;
+        }
+        
+        //define a function called strike() that adds the 'list' class to the selected item(this)
+        function strike() {
+            this.className = 'strike';
+        }
+        
+        //once click button, the image becomes visible and change the color of every other list items
+        function image() {
+            document.getElementById('cake').style.visibility="visible";
+                
+            //create a classname changeColor and style it in the <style>
+            var changeColor = document.getElementById('list');
+            changeColor.className = "changeColor";
+        }
+        
+        
+        //define an addItem() function
+        function addItem() {
+            
+            //get the item out of the text input and assign it to a variavle called newItem
+            var newItem = document.getElementById('txtItem').value;
+            
+            //create new <li> element
+            var newElement = document.createElement('li');
+            
+            //create a new text node containing the item the user entered
+            var newText = document.createTextNode(newItem);
+            
+            //get the item <ul> list
+            var list = document.getElementById('list');
+            
+            //if textbox value is empty, pop alert
+            if (newItem.length == 0) {
+                alert("empty!!!");
+            }
+            else {
+            
+                //assign the highlight function to the new element's onclick event 
+                newElement.onclick = strike;
+
+                //appened the text node to the <li> element
+                newElement.appendChild(newText);
+                
+                //append the <li> element to the list
+                list.appendChild(newElement);
+            }
+            
+            //clear textbox values after button is clicked
+            document.getElementById('txtItem').value = '';
+        }
+        
+        btn2.onclick = addItem;
+
+    </script>
+</body>
+</html>

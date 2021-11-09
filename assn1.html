@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 1/15/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/assn1.html
+
+    The Tea Shoppe - will calculate the price of coffee and biscotti
+    -->
+    <meta charset="UTF-8">
+    <title>The Tea Shoppe</title>
+</head>
+
+<body>
+    <h1>Welcome to the Tea Shoppe!</h1>
+    <img src="images/assn1/tea.jpg" alt="tea"     />
+
+    <br>
+    <br>
+    <script>
+        // create variable to ask name
+        var name = prompt("What is your name? ");
+
+        // if users input numbers in the name, it will prompt invalid
+        if (!isNaN(name))
+        {
+            alert("Invalid.");
+            var name = prompt("What is your name? ");
+        }
+
+        // create variable to ask numbers of cups
+        var cup = prompt("How many cups of tea would you like? ");
+        // integer number of cups and limited two decimal places
+        cup = parseInt(cup);
+
+        // if users input string in the numbers of cups, it will prompt invalid
+        if (isNaN(cup))
+        {
+            alert("Invalid.");
+            var cup = prompt("How many cups of tea would you like? ");
+        }
+
+        // create variable to confirm biscotti
+        var biscotti = confirm("Do you want biscotti with your tea? ");
+
+        // create variable to calculate total
+        var total = (cup * 1.50) + (cup * 1.50 * 0.09);
+
+        // boolean to different results
+        if (biscotti == true)
+        {
+            total = total + 2;
+            // float number of total and limited two decimal places
+            total = parseFloat(total).toFixed(2);
+
+            // print the sentence
+            document.write("<p>" + name + ", your total for " + cup + " cup\(s\) of tea is $" + total + ".</p>");
+        }
+        
+        else
+        {
+            // float number of total and limited two decimal places
+            total = parseFloat(total).toFixed(2);
+            // print the sentence
+            document.write("<p>" + name + ", your total for " + cup + " cup\(s\) of tea is $" + total + ".</p>");
+        }
+    </script>
+
+</body>
+
+</html>

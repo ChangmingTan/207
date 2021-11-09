@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 2/22/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/jQuery-Practice.html
+    -->
+    <title>Fun with jQuery UI</title>
+    <link rel="stylesheet" 
+            href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+
+</head>
+<body>
+    <h2 id='heading'>Hello, jQuery UI!</h2>
+    <label>Pick a date: <input type="text" id="date"></label>
+    
+    
+    <div id="accordion">
+        <h3>Blah Blah</h3>
+        <div><p>Mauris mauris ante, blandit et… </p></div>
+        
+        <h3>Yadda yadda</h3>
+        <div><p>Sed non urna. Donec et ante…</p></div>
+        
+        <h3>Whatever</h3>
+        <div><p>Nam enim risus, molestie et…</p></div>
+    </div>
+
+    <div class="ui-widget">
+        <label for="tags">Fruits: </label>
+        <input id="tags">
+    </div>
+    
+    <div id="draggable" class="ui-widget-content">
+      <p>Drag me around</p>
+    </div>
+    
+    <div id="slider"></div>
+
+    <script>
+        $('#heading').on('click', function(){
+            alert('hello!');
+        });
+        
+        $("#date").datepicker();
+        
+        $("#accordion").accordion();
+        
+        var fruits = ["apple", "banana", "blueberry", "canteloupe",
+                      "figs", "jicama", "kiwi", "lemon", "lime", "mango",
+                      "orange", "papaya", "rambutan", "strawberry"];
+        $( "#tags" ).autocomplete({
+          source: fruits
+        });
+        
+        $("#draggable").draggable();
+        
+        $( function() {$( "#slider" ).slider();} );
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "gpa": 2.5
+    },
+    
+    {
+        "firstName": "Maria",
+        "lastName": "Jimenez",
+        "gpa": 3.8
+    },
+    
+    {
+        "firstName": "Tran",
+        "lastName": "Nguyen",
+        "gpa": 3.2
+    }
+    
+]

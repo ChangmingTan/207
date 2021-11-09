@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 3/9/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/pp-aids/aids.html
+    
+    This web page allows users to search for Aids-related deaths by country and year. 
+    -->
+    <meta charset="UTF-8">
+    
+    <title>Aids Related Deaths</title>
+</head>
+<body>
+    <h1>Aids Deaths by Country</h1>
+    
+    <label>Country:
+        <input id="country" type="text">
+    </label>
+
+    <label>Year:
+        <input id="year" type="text">
+    </label>
+    
+    <button id="search-btn">Search</button>
+    
+    <div id="result"></div>
+
+<script src="//code.jquery.com/jquery.js"></script> 
+<script>
+
+    //on click function
+    $("#search-btn").on("click", function() {
+        
+        //When the user clicks the button, use jQuery to get the value of Country and Year and display them in an alert.
+        var country = $("#country").val();
+        var year = $("#year").val();
+        alert (country + ", " + year);
+        
+        //flag variable
+        var flag = false;
+        
+        //Use the jQuery getJSON function to read the aids.json file and process the result.
+        //Search from JSON data
+        $.getJSON("aids.json", function(result) {
+            
+            $.each(result, function(index, object) {
+               
+                //Note: country and year are variables that store user-entered data
+                //The country name is case-insensitive. It shouldn't matter if the user enters "Angola" or "angola".
+               if (object.Country.toLowerCase() == country.toLowerCase() && object.Year == year) {
+                
+                    flag = true;
+                    
+                    //display the number of Adults and Children who died of Aids in the selected Country and Year.
+                    $("#result").html("<p>Adults: " + object.Data['AIDS-Related Deaths'].Adults + "</p>");
+                    $("#result").append("<p>Children: " + object.Data['AIDS-Related Deaths'].Children + "</p>");
+               }
+            });
+            
+            //If there are no results for the country and year, a message is displayed.
+            if (!flag) {
+                
+                $("#result").html("No result");
+            }
+        });
+        
+        //The text boxes are cleared after each request.
+        $("#country").val("");
+        $("#year").val("");
+    });
+</script>
+</body>
+</html>

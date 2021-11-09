@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 3/18/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/dice-roller.html
+
+    JavaScript Final Programming - this is a web page that uses JavaScript to simulate the rolling of dice.
+    -->
+    <meta charset="UTF-8">
+    <title>Dice Simulator</title>
+</head>
+<body>
+    <h1>Dice roller</h1>
+    <h2>Save time and energy by suing my automatic dice roller!</h2>
+    <label>How many dice would you like to roll?
+        <input type='text' id='numOfDice'>
+    </label>
+    <label>What total are you rolling for?
+        <input type='text' id='totalRoll'>
+    </label>
+    <button id='button'>Go</button>
+    <h3>Results:</h3>
+    <p id='result'></p>
+
+    
+    
+<script>
+    //get the button
+    var button = document.getElementById('button');
+    
+    //get the result div
+    var result = document.getElementById('result');
+    
+    //assign the roll function to the button
+    button.onclick = roll;
+
+    function roll()
+    {
+
+        //get the value of number of dice that the user input, and parse it into integer
+        var numOfDice = parseInt(document.getElementById('numOfDice').value);
+
+        //if the number of dice is less than 1, display message
+        if (numOfDice < 1) {
+            result.innerHTML = "<p>You can't roll " + numOfDice + " dice!</p>";
+            return;
+        }
+
+        //get the value of total roll that the user input, and parse it into integer
+        var totalRoll = parseInt(document.getElementById('totalRoll').value);
+        
+        //invalid if total roll is less than number of dice, because at least 1 for each dice
+        //invalid if total roll is greater than number of dice, because maximum 6 for each dice
+        if (totalRoll < numOfDice || totalRoll > numOfDice * 6) {
+            result.innerHTML = "<p>That's not a possible total with " + numOfDice + " dice!</p>";
+            return;
+        }
+
+        //clear the text content
+        result.innerHTML = "";
+        
+        //initialize sum variable
+        var total;
+        
+        //initialize a counter variable
+        var count = 0;
+        
+        //initialize a random number variable
+        var random = 0;
+        
+        //do while loop at least executes once
+        //loop until the total matches the total roll that the user input
+        do
+        {
+            //assign 0 to the total variable
+            total = 0;
+            
+            for (var i = 0; i < numOfDice; i++)
+            {
+                //generate a random number for each dice
+                random = Math.floor(Math.random() * 6) + 1;
+                
+                //sum up all dice numbers
+                total += random;
+                
+                //display all dice number message
+                result.innerHTML += random + " ";
+            }
+            
+            //display result message
+            result.innerHTML += " --> Total: " + total + "<br>";
+            
+            //use the counter variable to count how many times the user rolled
+            count++;
+            
+        } while (total != totalRoll);
+
+        //display final result message once the total number matches the user's diresed total roll
+        result.innerHTML += "<h4>You got your total in " + count + " rolls!</h4>";
+    }
+</script>
+</body>
+</html>

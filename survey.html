@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 3/3/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/survey.html
+    
+    Form Assignment:
+    A web form that allows Green River students to complete a Student Satisfaction survey. 
+    -->
+    <meta charset="UTF-8">
+    <title>Student Satisfaction Survey</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: darkred;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Student Satisfaction Survey</h1>
+    
+    <form id='survey-form' action='complete.html' method='get'>    <!--method= get is more flexible, post is more secured-->
+        
+        <label>
+            <input type='text' id='fname' placeholder='First Name'>
+        </label>
+        <span id='error-fname' class='hidden'>* required</span><br>
+        
+        <label>
+            <input type='text' id='lname' placeholder='Last Name'>
+        </label>
+        <span id='error-lname' class='hidden'>* required</span><br><br>
+        
+        <select id='major'>
+            <option value='none'>Select your major</option>
+            <option value='small'>Information Technology</option>
+            <option value='medium'>Business</option>
+            <option value='large'>Aviation</option>
+            <option value='large'>Music</option>
+            <option value='large'>English</option>
+            <option value='large'>Art</option>
+            <option value='large'>Math</option>
+            <option value='large'>P.E.</option>
+        </select>
+        <span id='error-major' class='hidden'>* required</span><br><br>
+        
+        <label>Your study environment is very good:<br>
+            <input type='radio' name='method1'>Strongly agree<br>    <!--give them the same name, check either one only-->
+            <input type='radio' name='method1'>Agree<br>
+            <input type='radio' name='method1'>Disagree<br> 
+            <input type='radio' name='method1'>Strongly disagree
+        </label>
+        <span id='error-method1' class='hidden'>* required</span><br><br>
+        
+        <label>Classrooms are well organized:<br>
+            <input type='radio' name='method2'>Strongly agree<br>    <!--give them the same name, check either one only-->
+            <input type='radio' name='method2'>Agree<br>
+            <input type='radio' name='method2'>Disagree<br> 
+            <input type='radio' name='method2'>Strongly disagree
+        </label>
+        <span id='error-method2' class='hidden'>* required</span><br><br>
+        
+        <label>Instructors are friendly to students:<br>
+            <input type='radio' name='method3'>Strongly agree<br>    <!--give them the same name, check either one only-->
+            <input type='radio' name='method3'>Agree<br>
+            <input type='radio' name='method3'>Disagree<br> 
+            <input type='radio' name='method3'>Strongly disagree
+        </label>
+        <span id='error-method3' class='hidden'>* required</span><br><br>
+        
+        <label>Additional comments (optional):</label><br>
+        <textarea id='comments' rows='5' cols='20'></textarea>  <!--rows:how tall cols:how wide-->
+        <span id='error-comments' class='hidden'>* required</span><br><br><br>
+
+
+        <label> Clicking on the "agree" button below indicates that:<br>
+                • you agree to the above information<br>
+                • you voluntarily agree to participate<br>
+                • you are at least 18 years of age<br><br>    
+            <input type='checkbox' id='terms'>
+            I agree to the terms
+        </label>
+        <span id='error-terms' class='hidden'>* required</span><br><br>
+        
+        
+        <input type='submit' value='Submit Survey'>
+    </form>
+    
+    <script src="survey.js"></script>
+    
+</body>
+</html>

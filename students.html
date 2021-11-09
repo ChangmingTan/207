@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 3/4/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/students.html
+    
+    JSON practice
+    -->
+    <meta charset="UTF-8">
+    <title>Using jQuery Ajax with JSON</title>
+</head>
+<body>
+    <button id="get">Get JSON data</button>
+    <div id="output"></div>
+    
+    <script src="//code.jquery.com/jquery.js"></script> 
+    <script>
+        $("#get").on("click", function(){
+            
+            $.getJSON("students.json", function(result){
+                
+                $.each(result, function(index, student){
+                    
+                    /*
+                    $("#output").html(student.firstName + " " +
+                                      student.lastName + ", " +
+                                      student.gpa); //only shows the last student info
+                    */
+                    
+                    $("#output").append("<p>" + index + ": " + student.firstName + " " +
+                                      student.lastName + ", " +
+                                      student.gpa + "</p>"); //using .append to show all students info
+                                                            //show index
+
+                    
+                });
+            });
+        });
+    </script>
+</body>
+</html>

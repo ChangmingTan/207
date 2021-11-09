@@ -1,0 +1,49 @@
+<!--
+Names: Changming Tan, Laxmi Kandel
+Date: 1/11/2019
+URL: http://ctan.greenriverdev.com/207/pay.html
+
+"Pair Program - Pay Calculator"
+-->   
+<!doctype html>
+<html lang="en">
+    
+<head>
+    <title>Pair Program - Pay Calculator</title>
+</head>
+<body>
+    <script>
+        //prompt to ask name
+        var name = prompt("What is your name?");
+        
+        //prompt to ask hours worked
+        var hour = prompt("How many hours you worked?");
+        
+        //prompt to ask pay rate
+        var rate = prompt("What is your pay rate?");
+        
+        //calculate total pay
+        var totalPay = (hour * rate);
+        
+        //confirm if they work on a holiday
+        var answer = confirm("Did you work on a hoilday?");
+        
+        if (answer==true)
+        {
+            totalPay = totalPay+100;
+        }
+        
+        //make hour decimal number
+        hour = parseFloat(hour);
+        
+        //make rate decimal number
+        rate = parseFloat(rate);
+        
+        //total pay will be limited to two decimal places
+        totalPay = totalPay.toFixed(2);
+        
+        //print total pay
+        document.write(name +", you earned "+ totalPay + ".");
+    </script>
+</body>
+</html>

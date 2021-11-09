@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 2/27/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/ES6/scripts/pythagorean-theorem.html
+    
+    This web page uses Pythagorean Theorem (a2 + b2 = c2).
+    -->
+    <meta charset="UTF-8">
+    
+    <link href='pythagorean-theorem.css' rel='stylesheet' type='text/css'/>
+    <title>Pythagorean Theorem</title>
+</head>
+<body>
+    <h1>Pythagorean Theorem</h1>
+    <h3>This form will be used to help you solve Pythagorean Theorem
+    for any right triangle you have! <br>
+    Using your measurements from any 2 sides,
+    please enter them in the appropiate box below,
+    then hit "calculate" to see the results, and you can hit the "clear" button to clear the values.</h3>
+    <p>Note: please enter the original measurement (not squared) up to two places past the decimal.</p>
+    
+    <img alt="Pythagorean-Theorem" src="../image/Pythagoras_Theorem_Picture.jpg" ><br><br>
+    
+    <form class="pythagoranForm" action="index.html" method="post">
+		<fieldset>
+			<legend>Enter 2 sides and leave 1 blank to be calculated:</legend>
+
+			<label>A:<input type='number' id='a' step='0.01' placeholder='Enter side A.' ></label>
+			<label>B:<input type='number' id='b' step='0.01' placeholder='Enter side B.' ></label>
+			<label>C:<input type='number' id='c' step='0.01' placeholder='Enter side C.' ></label>
+			<br>
+			<button id="calculate" type='button'>calculate</button>
+            <br>
+            <button id="clear" type='button'>clear</button>
+		</fieldset>
+	</form>
+    <br><br>
+    <div id='result'></div>
+
+    <script src="pythagorean-theorem.js"></script>
+    
+</body>
+</html>

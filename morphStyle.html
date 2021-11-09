@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 1/28/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/morphStyle.html
+    -->
+    <meta charset="UTF-8">
+    <title>Morph Style</title>
+    <style>
+/*	Define the style*/
+		.morphStyle
+		{
+		border: thick solid red;
+		padding: 3em;
+		background: black;
+		color: white;	
+		}
+	</style>
+
+</head>
+<body>
+    <button id='btn-morph'>Morph</button>
+    <p id='p1'>This is a paragraph</p>
+    
+    <script>
+		
+		//Changing object style
+		
+        var btnMorph = document.getElementById('btn-morph');
+        btnMorph.onclick = morph;
+        
+        function morph()
+        {
+            var p = document.getElementById('p1');
+			
+			//Change the object style in JS using the className property
+            p.className = 'morphStyle';
+        }
+		
+		
+		//=====================================
+		//Modify the morph() function in the previous example so that the paragraph toggles between "morphStyle" and no style when you click the button.
+
+		function morph()
+		{
+			var p = document.getElementById('p1');
+			if (p.className == 'morphStyle') 
+			{					
+				p.className = "";		
+			} 
+			else 
+			{				
+				p.className = 'morphStyle';		
+			}
+		}
+
+    </script>
+
+</body>
+</html>

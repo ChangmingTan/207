@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 1/21/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/assn3.html
+
+    Pick-a-Pet - Create a "Pick-a-Pet" page that determines what pet a user should get.
+    -->
+    <meta charset="UTF-8">
+    <title>Pick a Pet</title>
+</head>
+<body>
+    <script>
+        //prompt to ask user's age
+        var age = prompt("How old are you?");
+        
+        //loop until age is valid
+        while ((age <= 0) || (isNaN(age)))
+        {
+            age = prompt("Age must be over 0. How old are you?");
+        }
+        
+        //parse age to float
+        age = parseFloat(age);
+        
+        //prompt to ask user's gender, case-insensitive
+        var gender = prompt("Enter your gender(M/F)").toUpperCase();
+        
+        //loop until gender is valid
+        while ((gender != "M") && (gender != "F"))
+        {
+            gender = prompt('Gender must be "M" or "F". Enter your gender(M/F)').toUpperCase();
+        }
+        
+        //if user inputs "m" or "M"
+        if (gender === "M")
+        {
+            //condition for different age groups, then shows different types of pets
+            if((age > 0) && (age <= 29))
+            {
+                document.write('<img id="chameleon" src="images/assn3/chameleon.jpg" alt="chameleon" />' + "<br>");
+                
+                //print the results depending on user's inputs      
+                document.write("<p>Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Recommendation: You should pet a chameleon.</p>");
+            }
+            
+            if((age >= 30) && (age <= 59))
+            {
+                document.write('<img id="parrot" src="images/assn3/parrot.jpg" alt="parrot" >' + "<br>");
+                
+                //print the results depending on user's inputs      
+                document.write("<p>Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Recommendation: You should pet a parrot.</p>");
+            }
+            
+            if(age >= 60)
+            {
+                document.write('<img id="goldenFish" src="images/assn3/goldenFish.jpg" alt="goldenFish" />' + "<br>");
+                
+                //print the results depending on user's inputs      
+                document.write("<p>Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Recommendation: You should pet a golden fish.</p>");
+            }
+        }
+
+        //if user inputs "f" or "F"
+        if (gender === "F")
+        {
+            //condition for different age groups, then shows different types of pets
+            if((age > 0) && (age <= 29))
+            {
+                document.write('<img id="cat" src="images/assn3/cat.jpg" alt="cat" />' + "<br>");
+                
+                //print the results depending on user's inputs      
+                document.write("<p>Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Recommendation: You should pet a cat.</p>");
+            }
+            
+            if((age >= 30) && (age <= 59))
+            {
+                document.write('<img id="guineaPig" src="images/assn3/guineaPig.jpg" alt="guineaPig" />' + "<br>");
+                
+                //print the results depending on user's inputs      
+                document.write("<p>Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Recommendation: You should pet a guinea pig.</p>");
+            }
+            
+            if(age >= 60)
+            {
+                document.write('<img id="dog" src="images/assn3/dog.jpg" alt="dog" />' + "<br>");
+                
+                //print the results depending on user's inputs      
+                document.write("<p>Age: " + age + "<br>" + "Gender: " + gender + "<br>" + "Recommendation: You should pet a dog.</p>");
+            }
+        }
+    </script>
+</body>
+</html>

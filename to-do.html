@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan, Robert Cox
+    Date: 2/6/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/to-do.html
+
+    Pair Program - to do list
+    -->
+    <meta charset="UTF-8">
+    <title>To-do List</title>
+</head>
+	<body>
+		<h1>To Do List</h1>
+		
+		<ul id='list'>
+		</ul>
+		
+		<input id="input" type='text'>
+		
+		<button id='addBtn'>Add Item</button>
+		
+		<script>
+			var addBtn = document.getElementById('addBtn');
+			var input = document.getElementById('input');
+			var list = document.getElementById('list');
+			var ulChildren = list.childNodes;
+			var todo = [];
+			
+			addBtn.onclick = addToList;
+			
+			function addToList()
+			{
+				var item = input.value;
+				
+				clearList();
+				
+				if(item !== '')
+				{
+					todo.push(item);
+					todo.sort();
+				}
+				
+				for(var i in todo)
+				{
+					if(todo.length != 0)
+					{
+						var textNode = document.createTextNode(todo[i]);
+						var li = document.createElement('li');
+						li.className = todo[i];
+						li.appendChild(textNode);
+						list.appendChild(li);
+					}
+					
+				}
+				
+				input.value = '';
+			}
+			
+			function clearList()
+			{
+				if(ulChildren.length != 0)
+				{
+					for(var p = ulChildren.length -1; p >= 0; p--)
+					{
+						list.removeChild(ulChildren[p]);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

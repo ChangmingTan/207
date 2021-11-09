@@ -1,0 +1,37 @@
+/*
+    Name: Changming Tan
+    Date: 2/27/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/ES6/scripts/pythagorean-theorem.css
+    
+    This web page uses Pythagorean Theorem (a2 + b2 = c2).*/
+
+html {
+	background-color: #042037;
+	color: white;
+}
+
+body {
+	text-align:center;
+	max-width: 1500px;
+	margin: auto;
+}
+
+fieldset, div#results {
+	background-image: linear-gradient(to bottom right, #05734a, #0d436f);
+	display: flex;
+	width: 220px;
+	margin-left:625px;
+}
+
+div#results {
+	margin-top: 8px;
+	line-height: 2.0;
+	text-indent: 1em;
+	font-size:20px;
+}
+
+img {
+	width: 380px;
+	height:300px;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    
+    <!--
+    Name: Changming Tan, Patrick Dang
+    Date: 1/18/2019
+    IT 207
+    File name: Pair Program - Personality Profile
+    URL: http://ctan.greenriverdev.com/207/personalityProfile.html
+    
+    "Personality Profile" determines a user’s personality based ontheir favorite color.
+    The program should is case-insensitive, so "blue," "Blue," and "BLUE" should yield the same results.
+    It generates a random number between 1 and 10.
+    Display a "Personality Profile" based on the color and number.
+    -->
+    
+    <meta charset="UTF-8">
+    <title>Personality Profile</title>
+</head>
+<body>
+    
+    
+    
+    <script>
+        //prompt to ask the user to input a color he/she likes - only can choose from red, green, and blue
+        var favoriteColor = prompt("What is your favorite color? ", "Red, Green, or Blue");
+        //otherwise - while loop
+        while((favoriteColor != "red") && (favoriteColor != "green") && (favoriteColor != "blue"))
+        {
+            favoriteColor = prompt("What is your favorite color? ", "Red, Green, or Blue");
+            favoriteColor = favoriteColor.toLowerCase();
+        }
+        
+        //create a variable called num
+        //Math.random() to generate a random number
+        //Math.floor() to round a number downward to its nearest integer
+        //Math.random() * 10 returns a random integer from 0 to 9
+        //Math.floor(Math.random() * 10) + 1 returns a random integer between 1 and 10 (both included)
+        var num = Math.floor((Math.random() * 10) + 1);
+        
+        //if condition - if the user inputs red
+        if (favoriteColor === "red")
+        {
+            //if the random number is an odd number
+            if (num % 2 > 0)
+            {
+                //if the random number is between 1 and 5 (both included) then it will print the sentence with an image
+                if ((num >= 1) && (num <= 5))
+                {
+                    document.write('<img src="images/personalityProfile/cheerful.png" alt="cheerful" />' + "<br>" + "You are cheerful.");
+                }
+
+                //if the random number is between 6 and 10 (both included) then it will print the sentence with an image
+                else if ((num >=6) && (num <=10))
+                {
+                    document.write('<img src="images/personalityProfile/mad.png" alt="mad" />' + "<br>" + "You are mad.");
+                }
+            }
+            
+            //if the random number is an even number
+            else
+            {
+                //if the random number is between 1 and 5 (both included) then it will print the sentence with an image
+                if ((num >= 1) && (num <= 5))
+                {
+                    document.write('<img src="images/personalityProfile/fiery.png" alt="fiery" />' + "<br>" + "You are fiery.");
+                }
+                
+                //if the random number is between 6 and 10 (both included) then it will print the sentence with an image
+                else if ((num >=6) && (num <=10))
+                {
+                    document.write('<img src="images/personalityProfile/passionate.png" alt="passionate" />' + "<br>" + "You are passionate.");
+                }
+            }
+        }
+        
+        //if condition - if the user inputs blue
+        else if (favoriteColor === "blue")
+        {
+            //if the random number is an odd number
+            if (num % 2 > 0)
+            {
+                //if the random number is between 1 and 5 (both included) then it will print the sentence with an image
+                if ((num >= 1) && (num <= 5))
+                {
+                    document.write('<img src="images/personalityProfile/sad.png" alt="sad" />' + "<br>" + "You are sad.");
+                }
+                
+                //if the random number is between 6 and 10 (both included) then it will print the sentence with an image
+                else if ((num >=6) && (num <=10))
+                {
+                    document.write('<img src="images/personalityProfile/wisdom.png" alt="wisdom" />' + "<br>" + "You like wisdom.");
+                }
+            }
+            
+            //if the random number is an even number
+            else
+            {
+                //if the random number is between 1 and 5 (both included) then it will print the sentence with an image
+                if ((num >= 1) && (num <= 5))
+                {
+                    document.write('<img src="images/personalityProfile/relaxed.png" alt="relaxed" />' + "<br>" + "You are relaxed.");
+                }
+                
+                //if the random number is between 6 and 10 (both included) then it will print the sentence with an image
+                else if ((num >=6) && (num <=10))
+                {
+                    document.write('<img src="images/personalityProfile/peaceful.png" alt="peaceful" />' + "<br>" + "You are peaceful.");
+                }
+            }
+        }
+        
+        //if condition - if the user inputs green
+        else if (favoriteColor === "green")
+        {
+            //if the random number is an odd number
+            if (num % 2 > 0)
+            {
+                //if the random number is between 1 and 5 (both included) then it will print the sentence with an image
+                if ((num >= 1) && (num <= 5))
+                {
+                    document.write('<img src="images/personalityProfile/irritable.png" alt="irritable" />' + "<br>" + "You are irritable.");
+                }
+                
+                //if the random number is between 6 and 10 (both included) then it will print the sentence with an image
+                else if ((num >=6) && (num <=10))
+                {
+                    document.write('<img src="images/personalityProfile/energetic.png" alt="energetic" />' + "<br>" + "You are energetic.");
+                }
+            }
+            
+            //if the random number is an even number
+            else
+            {
+                //if the random number is between 1 and 5 (both included) then it will print the sentence with an image
+                if ((num >= 1) && (num <= 5))
+                {
+                    document.write('<img src="images/personalityProfile/nature.png" alt="nature" />' + "<br>" + "You like nature.");
+                }
+                
+                //if the random number is between 6 and 10 (both included) then it will print the sentence with an image
+                else if ((num >=6) && (num <=10))
+                {
+                    document.write('<img src="images/personalityProfile/freshness.png" alt="freshness" />' + "<br>" + "You like freshness.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

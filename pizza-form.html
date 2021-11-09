@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 2/20/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/pizza-form.html
+    
+    Form Validity
+    -->
+    <meta charset="UTF-8">
+    <title>Poppa's Pizza</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .error {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Poppa's Pizza</h1>
+    
+    <form id='pizza-form' action='success.html' method='get'>    <!--method= get is more flexible, post is more secured-->
+
+        <!--<input type='text' id='fname' placeholder='First Name'>  "First Name" shown inside the textbox-->
+
+        <label>First Name:
+            <input type='text' id='fname'>
+        </label>
+        <span id='error-fname' class='hidden'>* required</span><br>
+        
+        <label>Last Name:
+            <input type='text' id='lname'>
+        </label>
+        <span id='error-lname' class='hidden'>* required</span><br><br>
+        
+        <label>Enter your address:</label><br>
+        <textarea id='address' rows='5' cols='20'></textarea>  <!--rows:how tall cols:how wide-->
+        <span id='error-address' class='hidden'>* required</span><br>
+
+        <select id='size'>
+            <option value='none'>Select a Size</option>
+            <option value='small'>Small</option>
+            <option value='medium'>Medium</option>
+            <option value='large'>Large</option>
+        </select>
+        <span id='error-size' class='hidden'>* required</span><br><br>
+        
+        <label>
+            <input type='checkbox' id='terms'>
+            I agree to the terms
+        </label>
+        <span id='error-terms' class='hidden'>* required</span><br><br>
+
+        
+        <label>Please choose one:<br>
+            <input type='radio' name='method'>Pick-up<br>    <!--give them the same name, check either one only-->
+            <input type='radio' name='method'>Delivery
+        </label>
+        <span id='error-method' class='hidden'>* required</span><br><br>
+        
+        <input type='submit' value='Submit Order'>
+        
+    </form>
+    
+    <script>
+        //Get the form
+        var form = document.getElementById('pizza-form');
+        form.onsubmit = validate;
+        
+        //Validate the form
+        function validate()
+        {
+            //Flag Variable to track validity
+            var isValid = true;
+            
+            //Validate first name
+            var txtFirst = document.getElementById('fname');
+            var firstname = txtFirst.value;  //or shortcut: var firstname = document.getElementById('fname').value;
+            var errFname = document.getElementById('error-fname');
+        
+            if (firstname === "")
+            {
+                errFname.className = 'error';
+                isValid = false;  //prevents the form to be submitted
+            }
+            else
+            {
+                errFname.className = 'hidden';
+            }
+            
+            //Validate last name
+            var lastname = document.getElementById('lname').value;
+            var errLname = document.getElementById('error-lname');
+            
+            if (lastname === "")
+            {
+                errLname.className = 'error';
+                isValid = false;
+            }
+            else
+            {
+                errLname.className = 'hidden';
+            }
+        
+            //Validate terms
+            var terms = document.getElementById('terms').checked;
+            var errTerms = document.getElementById('error-terms');
+            
+            if (terms === false)
+            {
+                errTerms.className = 'error';
+                isValid = false;
+            }
+            else
+            {
+                errTerms.className = 'hidden';
+            }
+            
+            //Validate pizza size
+            var size = document.getElementById('size').value;
+            var errSize = document.getElementById('error-size');
+            
+            if (size === 'none')
+            {
+                errSize.className = 'error';
+                isValid = false;
+            }
+            else
+            {
+                errSize.className = 'hidden';
+            }
+            
+            //Validate delivery or pickup method
+            var methods = document.getElementsByName('method');
+            var errMethod = document.getElementById('error-method');
+            
+            //Loop through the NodeList
+            var count = 0;
+            for (var i in methods)
+            {
+                //If a button is clicked, hide error and increment counter
+                if (methods[i].checked === true)
+                {
+                    errMethod.className = 'hidden';
+                    count++;
+                }
+            }
+            
+            //If count is zero, no buttons were checked
+            if (count === 0)
+            {
+                errMethod.className = 'error';
+                isValid = false;
+            }
+
+            
+            //prevents the form to be submitted, stay on the same page
+            return isValid;  //if false returns false, if true returns ture
+        
+        }
+    </script>
+    
+</body>
+</html>

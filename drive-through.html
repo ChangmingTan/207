@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan, Laxmi Kandel
+    Date: 2/20/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/drive-through.html
+    
+    Pair Program 5 - Dollar Drive Through
+    -->
+    <meta charset="UTF-8">
+    
+    <style>
+        .imgBorder {
+            border: 3px solid blue;
+        }
+    </style>
+
+    <title>Dollar Drive Through</title>
+</head>
+
+<body>
+    <h1>Bob's Drive-Through</h1>
+    <p>May I take your order?</p>
+    
+    <img class='images' price='1.75' id='cheeseburger' alt='cheeseburger' src='images/drive-through/cheeseburger.png'>
+    <img class='images' price='2.35' id='chicken-burger' alt='chicken-burger' src='images/drive-through/chicken-burger.png'>
+    <img class='images' price='1.00' id='cookie' alt='cookie' src='images/drive-through/cookie.png'>
+    <img class='images' price='3.54' id='fish-filet' alt='fish-filet' src='images/drive-through/fish-filet.png'>
+    <img class='images' price='2.99' id='ice-cream' alt='ice-cream' src='images/drive-through/ice-cream.png'>
+    <img class='images' price='1.50' id='juice' alt='juice' src='images/drive-through/juice.png'>
+    <img class='images' price='1.99' id='oatmeal' alt='oatmeal' src='images/drive-through/oatmeal.png'>
+    <img class='images' price='3.55' id='parfait' alt='parfait' src='images/drive-through/parfait.png'>
+    <img class='images' price='3.99' id='salad' alt='salad' src='images/drive-through/salad.png'>
+    <img class='images' price='1.35' id='sundae' alt='sundae' src='images/drive-through/sundae.png'>
+    
+    <h1 id='price'></h1>
+    <ul id='orders'></ul>
+    <h3 id='total'></h3>
+    
+    <script>
+        
+        //Attach click event handler to each image
+        var images = document.getElementsByTagName('img');
+        var price = document.getElementById('price');
+        var orders = document.getElementById('orders');
+        var total = document.getElementById('total');
+        var orderTotal = 0; // Class scope variable
+        
+        for (var i = 0; i < images.length; i++)
+        {
+            images[i].onmouseover = addBorder;
+            images[i].onmouseout = removeBorder;
+        }
+        
+        //addBorder() adds border to the images
+        function addBorder()
+        {
+            this.className = 'imgBorder';
+            
+            var showPrice = this.alt + ': $' + this.getAttribute('price');
+            price.innerHTML = showPrice;
+        }
+        
+        //removeBorder() removes border to the images
+        function removeBorder()
+        {
+            this.className = '';
+        }
+        
+        for (var i=0; i<images.length; i++)
+        {
+            images[i].addEventListener
+            (
+                'click', //When the image is clicked
+                function (e)
+                {
+                    placeOrder(e); //Pass the event object to placeOrder
+                }
+            );
+        }
+        
+        //Place order
+        function placeOrder(e)
+        {
+            //Create list item
+            var newNode = document.createElement('li');
+            var newText = document.createTextNode(e.target.alt);
+            newNode.appendChild(newText);
+            orders.appendChild(newNode);
+            
+            //shows the price in the attribute 'price', and toFixed(2) shows only two decimals
+            orderTotal += parseFloat(e.target.getAttribute('price'));
+            total.innerHTML = "Total: $" + orderTotal.toFixed(2);
+        }
+
+    </script>
+</body>
+</html>

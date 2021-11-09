@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 3/1/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/jQueryAnimation.html
+    
+    jQuery Animation demo
+    -->
+    <meta charset="UTF-8">
+    <title>jQuery Animation</title>
+    
+    <style>
+    #box {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        background: #293f67;
+    }
+
+    #circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        position: relative;
+        background-color: #93c2c8;
+    }
+</style>
+</head>
+<body>
+    
+    <div id="box">
+        <div id='circle'></div>
+    </div>
+    <br>
+    <button id="start">Start</button>
+    
+    <script src="//code.jquery.com/jquery.js"></script>
+    
+    <script>
+        $("#start").on("click", function()
+        {
+            var circle = $("#circle");
+    
+    
+            circle.animate({left: '200px', top: '200px'}, "slow");
+            circle.animate({height: '50px', width: '50px'}, "slow");
+            circle.animate({top: '450px'});
+            circle.animate({top: '425px'}, 'fast');
+            circle.animate({top: '450px'}, 'fast');
+        });
+    </script>
+    
+</body>
+</html>

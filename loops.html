@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan
+    Date: 1/16/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/loops.html
+    in class practice - for loop
+    -->
+    <meta charset="UTF-8">
+    <title>Loops</title>
+</head>
+<body>
+    <h1>Feeling Loopy?</h1>
+    
+    <script>
+        
+        //prompt the user for a name
+        var name = prompt("Enter your name ");
+        
+        ///if name is empty, prompt again
+        while (name === "")
+        {
+            name = prompt("Enter your name ");
+        }
+        
+        //print a greeting
+        document.write("<h3>Hola, " + name + "!</h3>");
+        
+        
+        //prompt the user for GPA
+        var gpa = prompt("What is your GPA? ")
+        gpa = parseFloat(gpa)
+        
+        //If the GPA is not 0.0-4.0, prompt again
+        while (gpa < 0.0 || gpa > 4.0 || isNaN(gpa))
+        {
+            gpa = prompt("GPA must be 0.0 to 4.0. Enter GPA ");
+        }
+        
+        //print the GPA
+        
+        document.write("<h3>Your GPA is " + gpa + "</h3>");
+        
+        
+        
+        
+ /*
+        
+        //ask the user for a number
+        var num = prompt("Enter a number: ");
+        num = parseInt(num);
+        
+        //number is positive
+        if (num > 0)
+        {
+            //count from 0 up to the number
+            for (var count=0; count<=num; count++) // (count-=10) is shortcut for (count=count-10)
+            {
+                document.write("<p>" + count + "</p>");
+            }
+        }
+        
+        //number is negative
+        else
+        {
+            //count from zero down to the number
+            for (var count=0; count>=num; count--) // (count-=10) is shortcut for (count=count-10)
+            {
+                document.write("<p>" + count + "</p>");
+            }
+        }
+        
+        //calculate a sum
+        var sum = 0;
+        for (var i=0; i<5; i++)
+        {
+            sum = sum + i;
+        }
+        document.write("Sum is " + sum);
+        
+*/
+ 
+    </script>
+</body>
+</html>

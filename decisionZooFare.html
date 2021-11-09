@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <!--
+    Name: Changming Tan, Laxmi Kandel
+    Date: 1/16/2019
+    IT 207
+    URL: http://ctan.greenriverdev.com/207/loops.html
+    in class practice - zoo fee
+    -->
+    <meta charset="UTF-8">
+    <title>loops</title>
+</head>
+
+<body>
+
+    <script>
+        var age = prompt("Enter your age: ");
+        age = parseFloat(age);
+        
+        if (isNaN(age))
+        {
+            alert("INVALID");
+            var age = prompt("Enter your age: ");
+        }
+        
+        var senior = 5;
+        var adult = 7;
+        var student = 6;
+        senior = parseInt(senior);
+        adult = parseInt(adult);
+        student = parseInt(student);
+        
+        var seniorDiscount = senior * (1 - 0.15);
+        var adultDiscount = adult * (1 - 0.15);
+        var studentDiscount = student * (1 - 0.15);
+        var member = confirm("Are you a zoo member? ");
+        
+        if (member == true)
+        {
+            if (age >= 60)
+            {
+                document.write("Senior fare is $" + seniorDiscount + ".");
+            }
+            
+            else if ((age >= 20) && (age <= 59))
+            {
+                document.write("Adult fare is $" + adultDiscount + ".");
+            }
+            
+            else if ((age<=19 )&& (age>=13))
+            {
+                document.write("Student fare is $" + studentDiscount + ".");
+    
+    
+            }
+            
+            else if ((age >= 0) && (age <=12))
+            {
+                document.write("Child fare is free.");
+            }
+            
+            else
+            {
+                alert("ERROR");
+                var age = prompt("Enter your age: ");
+            }
+        }
+        
+        else
+        {
+            if (age >= 60)
+            {
+                document.write("Senior fare is $5.00.");
+            }
+            
+            else if ((age >= 20) && (age <= 59))
+            {
+                document.write("Adult fare is $7.00.");
+            }
+            
+            else if ((age<=19 )&& (age>=13))
+            {
+                document.write("Student fare is $6.00.");
+            }
+            
+            else if ((age >= 0) && (age <=12))
+            {
+                document.write("Child fare is free.");
+            }
+            
+            else
+            {
+                alert("ERROR");
+                var age = prompt("Enter your age: ");
+            }
+        }
+    </script>
+
+</body>
+</html>
